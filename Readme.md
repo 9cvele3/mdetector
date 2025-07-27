@@ -5,11 +5,16 @@
     * Keyframes take most of the space
     * If I only need video, do I need the container format or is the bitstream enough ? 
 	* mp4: [mov,mp4,m4a,3gp,3g2,mj2 @ 0x33cc75e0] moov atom not found; output.mp4: Invalid data found when processing input
-	* mpegts - ugly plugins group
+	* bitstream: `ffmpeg -show_frames | grep pts` shows only N/A
+	* mpegts - ugly plugins group, but proper duration and fps
 
 
 * How large will the video be ? 
     * Store a table: duration vs disk size
     * Maybe store a sequence of files
     * Delete some of them
+
+* Maybe add a GStreamer filter in python
+	* What is NVVM in GStreamer ? 
+
 

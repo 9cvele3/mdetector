@@ -2,7 +2,11 @@
 
 gst-launch-1.0 nvarguscamerasrc ! \
     'video/x-raw(memory:NVMM), width=1280, height=720, framerate=1/1' ! \
+    videorate ! \
+    'video/x-raw(memory:NVMM), framerate=1/1' ! \
     nvvidconv ! \
     nvv4l2h264enc iframeinterval=300 ! \
-    filesink location=output.h264
+    h264parse ! \
+    mpegtsmux ! \
+    filesink location=output.ts
 
